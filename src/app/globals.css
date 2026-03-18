@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-alegreya), "Georgia", serif;
+  --font-body: var(--font-source-sans), "system-ui", sans-serif;
+
+  /* Earth ramp */
+  --color-earth-950: #2a1810;
+  --color-earth-900: #3d2b1f;
+  --color-earth-800: #5c4033;
+  --color-earth-700: #6e5240;
+  --color-earth-600: #8b7355;
+  --color-earth-500: #a6895d;
+  --color-earth-400: #c4a882;
+  --color-earth-300: #d4c4a8;
+  --color-earth-200: #e8dcc8;
+  --color-earth-100: #f2ebdf;
+  --color-earth-50: #fff8ee;
+
+  /* Sage ramp */
+  --color-sage-700: #4a6741;
+  --color-sage-600: #5e8052;
+  --color-sage-500: #7a9e6d;
+  --color-sage-400: #9bb88e;
+  --color-sage-300: #b8cfa9;
+  --color-sage-100: #e8f0e2;
+
+  /* Clay ramp */
+  --color-clay-700: #8c4a2f;
+  --color-clay-600: #a85c3a;
+  --color-clay-500: #c47245;
+  --color-clay-400: #d4936a;
+  --color-clay-300: #e4b494;
+  --color-clay-100: #f8e8da;
+
+  /* Rose ramp */
+  --color-rose-700: #8c4a5e;
+  --color-rose-600: #a85c72;
+  --color-rose-500: #c47288;
+  --color-rose-400: #d493a4;
+  --color-rose-300: #e4b4c0;
+  --color-rose-100: #f8e0e8;
+
+  /* Named surfaces */
+  --color-linen: #fffcf7;
+  --color-cream: #fff5e6;
+  --color-parchment: #f5ede0;
+
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+}
+
+/* Paper grain texture for page backgrounds */
+.paper-grain {
+  position: relative;
+}
+
+.paper-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Spring animation for checkbox */
+@keyframes spring-check {
+  0% { transform: scale(0.8); }
+  60% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* Streak pulse animation */
+@keyframes streak-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+/* Fade up animation */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide up animation for bottom sheets */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-spring-check {
+    animation: spring-check 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .animate-streak-pulse {
+    animation: streak-pulse 3s ease-in-out infinite;
+  }
+  .animate-fade-up {
+    animation: fade-up 0.3s ease-out both;
+  }
+  .animate-slide-up {
+    animation: slide-up 0.3s ease-out;
+  }
+}
+
+html {
+  background-color: #f5ede0;
+}
+
+body {
+  font-family: var(--font-source-sans), "Source Sans 3", system-ui, sans-serif;
+  color: #6e5240;
+  background-color: #f5ede0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4c4a8;
+  border-radius: 2px;
+}
