@@ -8,7 +8,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: DrizzleAdapter(db),
   providers: [
     Resend({
-      apiKey: process.env.AUTH_RESEND_KEY,
+      apiKey: process.env.AUTH_RESEND_KEY ?? process.env.RESEND_API_KEY,
       from: "Collected <noreply@collected.app>",
     }),
     ...(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET
